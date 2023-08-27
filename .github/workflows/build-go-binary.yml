@@ -4,6 +4,11 @@ on:
   release:
     types: [created] # 表示在创建新的 Release 时触发 
 
+permissions:
+  contents: write
+  packages: write
+  
+
 jobs:
   build-go-binary:
     runs-on: ubuntu-latest
@@ -24,4 +29,4 @@ jobs:
           # goversion: 1.20 # 可以指定编译使用的 Golang 版本
           binary_name: "lucky-wallet" # 可以指定二进制文件的名称
           # extra_files: README.md config.dev.json # 需要包含的额外文件
-          asset_name: "${{ matrix.goos }}_${{ matrix.goarch }}"
+          # asset_name: "${{ matrix.goos }}_${{ matrix.goarch }}"
